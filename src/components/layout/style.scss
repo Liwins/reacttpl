@@ -1,0 +1,64 @@
+.layout {
+    position: absolute;
+    top: 0;
+    
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: red;
+    &>.aside {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 135px;
+      background: rgba(68, 68, 68,1);
+      .navs {
+        &>div {
+          line-height: 40px;
+          a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding-left: 20px;
+            &>i {
+              margin-right: 8px;
+            }
+          }
+        }
+        .on {
+          background-color: white;
+          color: black;
+        }
+      }
+    }
+    &>.header {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 135px;
+      height: 60px;
+      background: white;
+      box-sizing: border-box;
+      line-height: 60px;
+      padding: 0 20px;
+    }
+    &>.main {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      left: 135px;
+      bottom: 0;
+      background: rgba(247, 248, 250, 1);
+      &>div {
+        box-sizing: border-box;
+        margin: 20px;
+        background-color: white;
+        padding: 20px;
+      }
+    }
+  }
