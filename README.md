@@ -69,30 +69,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # 技术栈  
 采用三方库   
--s 
-```
-cnpm install --save axios@^0.19.0
-cnpm install --save antd@^3.26.11
-cnpm install --save echarts@^4.6.0
-
-cnpm install --save mobx@4.15.4
-cnpm install --save mobx-react@5.4.4
-cnpm install --save moment@^2.24.0
-cnpm install --save react-router@3.2.5
+axios 
+antd   
+echarts 
+mobx
+moment 
+react-router
 
 
-```
--dev  
-```
-cnpm install --dev less@^3.11.1
-cnpm install --dev less-loader@^5.0.0
-```
 
-# 功能设计
-
-1. 日志级别实时调换
-2. 动态设置矫正数据(矫正字段开-高-地,结算,昨收盘)
-3. zabbix 二级报警与交易所连接分开 
- 
-## 行情路由
-采用react router
