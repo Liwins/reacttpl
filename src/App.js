@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Provider } from 'mobx-react'
 import store from './store'
 import './App.css';
 import { HashRouter } from 'react-router-dom'
-import Layout from "./components/layout/Layout";
+import Layout from "./components/layout/index"
 function App() {
   return (
     <div className="App">

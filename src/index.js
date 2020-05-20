@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppContainer } from "react-hot-loader";
+import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
-import App from './App';
-import 'antd/dist/antd.css'
+import App from './App.js';
+// import 'antd/dist/antd.css'
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AppContainer>
+    <Router>
+      <App />
+    </Router>
+  </AppContainer>,
   document.getElementById('app')
 );
 

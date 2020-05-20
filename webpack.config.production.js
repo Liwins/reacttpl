@@ -1,14 +1,15 @@
 var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
-var OpenBrowserPlugin=require("open-browser-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
-        chunkFilename: '[id].[chunkhash].js'
+        path: path.join(__dirname, "dist"),
+        publicPath: "/",
+        filename: "assets/[name].[hash].js",
+        chunkFilename: "assets/[name].[chunkhash].js"
     },
     devtool: "eval",
     resolve: {
@@ -17,10 +18,8 @@ module.exports = {
         },
         extensions: ['.js', '.jsx']
     },
-
     module: {
         rules: [
-
             { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader', options: {
                 presets: [
                     ["es2015", {"modules": false}],
@@ -45,42 +44,35 @@ module.exports = {
             { test: /\.less$/, use:["style-loader","css-loader","postcss-loader","less-loader"] },
             { test: /\.(png|gif|jpg|jpeg|bmp)$/i, loader: 'url-loader?limit=5000' },  // 限制大小5kb
             { test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader: 'url-loader?limit=5000' } // 限制大小小于5k
-
-
         ]
     },
-
-    plugins: [ // 添加plugins节点配置插件
+    plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
         new webpack.NamedModulesPlugin(),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+        new webpack.optimize.OccurrenceOrderPlugin(true),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            minChunks: Infinity
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            minimize: true,
+            compress: {
+                warnings: false,
+                drop_console: true,
+                screw_ie8: true
+            },
+            output: {
+                comments: false
+            }
+        }),
+        new ExtractTextPlugin("assets/styles.css"),
         new HtmlWebpackPlugin({
             hash: false,
             template: "./index.hbs"
-        }),
-        // 热加载插件
-        new webpack.HotModuleReplacementPlugin(),
-
-        // // 打开浏览器
-        new OpenBrowserPlugin({
-            url: 'http://localhost:8080'
-        }),
-
-    ],
-    devServer: {
-        // colors: true, //终端中输出结果为彩色
-        historyApiFallback: true, //不跳转，在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
-        inline: true, //实时刷新
-        hot: true, // 使用热加载插件 HotModuleReplacementPlugin
-        proxy: { // 请求到 '/device' 下 的请求都会被代理到 target： http://debug.xxx.com 中 
-            '/v1/*': {
-                target: 'http://localhost:8080', secure: false, // 接受 运行在 https 上的服务 
-                changeOrigin: true
-            }
-        }
-    }
-
-
-
-
-
-}
+        })
+    ]
+};

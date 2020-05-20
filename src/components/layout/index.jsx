@@ -3,8 +3,7 @@ import { NavLink, Route, Redirect, Switch } from 'react-router-dom'
 import './style.scss'
 import routes from '../../router'
 import { Icon } from 'antd'
-
-export default class Layout extends React.Component {
+export default  class Layout extends React.Component {
     createRouter(type) {
         let res1 = []
         let res2 = []
@@ -42,7 +41,6 @@ export default class Layout extends React.Component {
                 <Switch>
                 { this.createRouter(2) }
                 </Switch>
-    
                 <Redirect from='/*' to='/jsx' />
               </div>
             </div>
