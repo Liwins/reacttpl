@@ -10,7 +10,7 @@
    "test": "echo \"Error: no test specified\" && exit 1"
  },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.19.2",
     "antd": "^3.26.11",
     "echarts": "^4.6.0",
     "css-declaration-sorter": "^2.0.0",
