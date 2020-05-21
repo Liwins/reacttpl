@@ -1,7 +1,6 @@
 import React from 'react'
 import {   inject,  observer} from 'mobx-react'
 import {Button,Breadcrumb} from 'antd';
-import routesf from '@/router'
 import MyBreacCurb from '../../../components/mybreadcrub'
 import {withRouter } from 'react-router-dom'
 @inject('store') @observer @withRouter

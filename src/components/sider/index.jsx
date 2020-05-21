@@ -1,5 +1,5 @@
 import React from 'react'
-import {routes} from '@/router'
+import {routes} from '@/routes'
 import { Layout, Menu, Icon } from 'antd';
 const { Sider } = Layout;
 import { NavLink, Link, Redirect, Switch } from 'react-router-dom'

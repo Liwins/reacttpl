@@ -1,12 +1,11 @@
 import React from 'react'
 import { NavLink, Route, Redirect, Switch,withRouter } from 'react-router-dom'
 import './style.scss'
-import {routes,headerRoutes} from '@/router'
+import {routes,headerRoutes} from '@/routes'
 import HeaderPage from '../header';
 import MyFooter from '../footer';
 import MySider from '../sider'
 import { Layout, Icon, Button, Breadcrumb } from 'antd'
-import NotFound from '@/pages/NotFound';
 const { Header, Sider, Content } = Layout;
 export default class MyLayout extends React.Component {
   constructor(props){

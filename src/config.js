@@ -20,7 +20,7 @@ module.exports = {
         error: ['loggerA', 'loggerB'],
     },
     api: {
-        host: 'http://localhost:12345',//调用ajax接口地址,默认值为空
+        host: 'http://localhost:19527',//调用ajax接口地址,默认值为空
         path: '/api',//ajax请求的路径
         timeout: 15000,//请求超时,ms
     },
