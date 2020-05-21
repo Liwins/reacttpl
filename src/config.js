@@ -8,6 +8,7 @@ module.exports = {
     name: '管理后台',//项目名称
     favicon: '/public/favicon.ico',
     footer: 'rs版权所有 © 2015-2099',
+    layoutTopDown:true,
     tabMode: {//tab模式相关配置
         enable: false,
         allowDuplicate: false,//同一个菜单只允许一个tab
