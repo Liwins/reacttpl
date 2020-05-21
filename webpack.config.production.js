@@ -14,7 +14,8 @@ module.exports = {
     devtool: "eval",
     resolve: {
         alias:{
-            '@':path.resolve(__dirname,'./src')
+            '@':path.resolve(__dirname,'./src'),
+            antdcss: 'antd/dist/antd.min.css'  // import时的别名
         },
         extensions: ['.js', '.jsx']
     },

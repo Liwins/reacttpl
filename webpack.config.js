@@ -13,7 +13,8 @@ module.exports = {
     devtool: "eval",
     resolve: {
         alias:{
-            '@':path.resolve(__dirname,'./src')
+            '@':path.resolve(__dirname,'./src'),
+            antdcss: 'antd/dist/antd.min.css'  // import时的别名
         },
         extensions: ['.js', '.jsx']
     },
@@ -37,12 +38,11 @@ module.exports = {
                 use: [
                     "style-loader",
                     "css-loader",
-                    "postcss-loader",
                     "resolve-url-loader",
                     "sass-loader?sourceMap"
                 ]
             },
-            { test: /\.less$/, use:["style-loader","css-loader","postcss-loader","less-loader"] },
+            { test: /\.less$/, use:["style-loader","css-loader","postcss-loader","less-loader"]},
             { test: /\.(png|gif|jpg|jpeg|bmp)$/i, loader: 'url-loader?limit=5000' },  // 限制大小5kb
             { test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader: 'url-loader?limit=5000' } // 限制大小小于5k
 

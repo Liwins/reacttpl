@@ -1,10 +1,9 @@
 import React from 'react'
 import {   inject,  observer} from 'mobx-react'
 import {Button} from 'antd';
-import './style.css'
-import MyBreacCurb from '../../components/mybreadcrub'
+import MyBreacCurb from '../../../components/mybreadcrub'
 @inject('store') @observer
-export default class Home extends React.Component {
+export default class HomePage2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -13,7 +12,7 @@ export default class Home extends React.Component {
         return (
             <div className="div">
                 <MyBreacCurb/>
-                <h1>主页 </h1>
+               配置页面二
                
             </div>
         )

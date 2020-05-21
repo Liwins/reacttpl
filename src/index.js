@@ -4,7 +4,8 @@ import { AppContainer } from "react-hot-loader";
 import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import App from './App.js';
-// import 'antd/dist/antd.css'
+import 'antdcss'
+
 ReactDOM.render(
   <AppContainer>
     <Router>

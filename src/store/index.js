@@ -1,28 +1,10 @@
 import {observable,action,computed} from 'mobx'
-
+import loginStore from './login'
+import siderStore from './sidebar'
+import menuStore from './menu'
 import  moment  from "moment"   
-
-class AppStore{
-    @observable  time='2019'
-    @observable todos=[]
-    @computed get desc(){
-        return `${this.time} 还有${this.todos.length} 条任务待完成`
-    }
-    @action addTodo(todu){
-        this.todos.push(todu)
-    }
-    @action getNow(){
-        this.time=moment().format('YYYY-MM-DD HH:mm:ss')
-    }
-    @action deleteTodo(){
-        this.todos.pop()
-    }
-    @action resetTodo(){
-        this.todos=[]
-    }
+const store={
+    loginStore,siderStore,menuStore
 }
-const store=new AppStore()
-setInterval(()=>{
-    store.getNow()
-}, 1000)
+
 export default store
