@@ -37,7 +37,6 @@ module.exports = {
                 use: [
                     "style-loader",
                     "css-loader",
-                    "postcss-loader",
                     "resolve-url-loader",
                     "sass-loader?sourceMap"
                 ]
