@@ -2,12 +2,11 @@ import React from 'react'
 import { NavLink, Route, Redirect, Switch,withRouter } from 'react-router-dom'
 import './style.scss'
 import routes from '@/routes'
-import HeaderPage from '../header';
+import HeaderTop from '../headertop';
 import MyFooter from '../footer';
-import MySider from '../sider'
 import { Layout, Icon, Button, Breadcrumb } from 'antd'
 const { Header, Sider, Content } = Layout;
-export default class MyLayout extends React.Component {
+export default class MyLayoutTop extends React.Component {
   constructor(props){
     super(props)
   }
@@ -31,11 +30,7 @@ export default class MyLayout extends React.Component {
     
     return (
       <Layout>
-        <HeaderPage />
-        <Layout>
-          <MySider/>
-          <Layout>
-
+        <HeaderTop />
           <Content>
           {/*Switch必须是Route直接父组件，Route不能被其它JSX对象所包裹*/}
           <div>
@@ -47,8 +42,6 @@ export default class MyLayout extends React.Component {
             </Switch>
           </div>
         </Content>
-          </Layout>
-        </Layout>
         <MyFooter/>
       </Layout>
     )
