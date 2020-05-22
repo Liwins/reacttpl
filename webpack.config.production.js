@@ -2,11 +2,12 @@ var path = require("path");
 var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+// 构建前删除dist目录
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
-        path: path.join(__dirname, "dist"),
+        path: path.join(__dirname, "docs"),
         publicPath: "/",
         filename: "assets/[name].[hash].js",
         chunkFilename: "assets/[name].[chunkhash].js"
@@ -70,9 +71,14 @@ module.exports = {
             }
         }),
         new ExtractTextPlugin("assets/styles.css"),
+        new CleanWebpackPlugin(['docs','docs/assets/*.*'],{
+            root: path.resolve(__dirname, './'),
+            dry: false // 启用删除文件
+        }),
         new HtmlWebpackPlugin({
             hash: false,
             template: "./index.hbs"
         })
+       
     ]
 };
