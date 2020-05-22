@@ -13,7 +13,8 @@ mobx
 moment   
 react-router
 # 功能需求
-
+## 布局
+根据配置文件进行布局选择
 ##  配置显示
 1. log
 2. zabbix
